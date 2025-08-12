@@ -65,12 +65,4 @@ public class NinjaModel {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public void atribuirMissao(MissoesModel idMissao) {
-        missoesList.add(idMissao);
-    }
-
-    public String toString() {
-        return "Meu nome é: " + nome;
-    }
 }
