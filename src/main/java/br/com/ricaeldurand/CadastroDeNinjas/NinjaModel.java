@@ -53,4 +53,7 @@ public class NinjaModel {
     public void setId(Long id) {
         this.id = id;
     }
+    public String toString(){
+        return"Meu nome é: "+nome;
+    }
 }
