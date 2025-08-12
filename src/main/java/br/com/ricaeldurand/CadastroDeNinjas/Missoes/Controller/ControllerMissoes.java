@@ -1,16 +1,14 @@
-package br.com.ricaeldurand.CadastroDeNinjas;
+package br.com.ricaeldurand.CadastroDeNinjas.Missoes.Controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
-public class controller {
-
-    @GetMapping("/inicio")
+public class ControllerMissoes {
+    @GetMapping("/MissoesNinjas")
     public String boasVindas(){
-        return "Minha primeira mensagem na rota";
+        return "Bem vindo! Voces está nas missoes ninjas.";
     }
 }

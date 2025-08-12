@@ -1,16 +1,28 @@
-package br.com.ricaeldurand.CadastroDeNinjas;
+package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Services;
 
+import br.com.ricaeldurand.CadastroDeNinjas.Missoes.Services.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
 public class NinjaModel {
+
     private String nome;
+
     private String email;
+
     private int idade;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    //essa anotation diz que um ninja pode ter apenas uma missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")// é o foreign key
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
@@ -53,7 +65,12 @@ public class NinjaModel {
     public void setId(Long id) {
         this.id = id;
     }
-    public String toString(){
-        return"Meu nome é: "+nome;
+
+    public void atribuirMissao(MissoesModel idMissao) {
+        missoesList.add(idMissao);
+    }
+
+    public String toString() {
+        return "Meu nome é: " + nome;
     }
 }
