@@ -1,4 +1,4 @@
-package br.com.ricaeldurand.CadastroDeNinjas.Missoes.Services;
+package br.com.ricaeldurand.CadastroDeNinjas.Missoes.Model;
 
 import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model.NinjaModel;
 import jakarta.persistence.*;
