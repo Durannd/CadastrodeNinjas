@@ -1,6 +1,6 @@
 package br.com.ricaeldurand.CadastroDeNinjas.Missoes.Services;
 
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Services.NinjaModel;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
