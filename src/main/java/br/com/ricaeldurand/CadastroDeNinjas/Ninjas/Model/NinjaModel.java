@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class NinjaModel {
-
+    @Column(name = "nome")
     private String nome;
-    @Column(unique = true)
+    @Column(unique = true, name = "email")
     private String email;
-
+    @Column(name = "idade")
     private int idade;
 
     @Id

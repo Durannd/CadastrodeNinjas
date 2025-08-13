@@ -24,7 +24,7 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> participantesMissao;
 
-
+    @Column(name = "dificulty")
     private String dificulty;
 
 }
