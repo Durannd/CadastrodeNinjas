@@ -21,10 +21,15 @@ public class NinjaService {
         return ninjaRepository.findAll();
     }
 
+    //criar por id
     public NinjaModel mostrarPorId(Long id){
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
 
+    // criar novo ninja
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
 
 }
