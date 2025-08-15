@@ -31,5 +31,15 @@ public class NinjaService {
     public NinjaModel criarNinja(NinjaModel ninja){
         return ninjaRepository.save(ninja);
     }
+    //Deletar tem que ser void
+    public void deletarNinja(Long id){
+        ninjaRepository.deleteById(id);
+    }
+    //atualizar coluna especifica por id
+    public void atualizarNinja(Long id, String a){
+        ninjaRepository.
+    }
+    public void atualizarNinja(Long id, int a){
 
+    }
 }
