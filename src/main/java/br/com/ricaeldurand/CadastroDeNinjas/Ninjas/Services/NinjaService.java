@@ -36,10 +36,12 @@ public class NinjaService {
         ninjaRepository.deleteById(id);
     }
     //atualizar coluna especifica por id
-    public void atualizarNinja(Long id, String a){
-        ninjaRepository.
-    }
-    public void atualizarNinja(Long id, int a){
-
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
+        if(ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }else{
+            return null;
+        }
     }
 }
