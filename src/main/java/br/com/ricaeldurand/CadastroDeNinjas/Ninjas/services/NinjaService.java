@@ -1,9 +1,11 @@
-package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Services;
+package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.services;
 
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model.NinjaModel;
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Repository.NinjaRepository;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.DTO.NinjaDTO;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.DTO.NinjaMapper;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.model.NinjaModel;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.repository.NinjaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -11,25 +13,31 @@ import java.util.Optional;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    @Autowired
+    NinjaService(NinjaMapper ninjaMapper, NinjaRepository ninjaRepository){
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
+
 
     //listar todos os ninjas
     public List<NinjaModel> mostrar(){
         return ninjaRepository.findAll();
     }
 
-    //criar por id
+    //mostrar por id
     public NinjaModel mostrarPorId(Long id){
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
 
     // criar novo ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+        ninjaModel = ninjaRepository.save(ninjaModel);
+        return ninjaMapper.map(ninjaModel);
     }
     //Deletar tem que ser void
     public void deletarNinja(Long id){

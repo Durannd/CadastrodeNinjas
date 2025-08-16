@@ -1,10 +1,9 @@
-package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model;
+package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.model;
 
 import br.com.ricaeldurand.CadastroDeNinjas.Missoes.Model.MissoesModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -16,9 +15,12 @@ public class NinjaModel {
     private String nome;
     @Column(unique = true, name = "email")
     private String email;
+    @Column(name = "rank")
+    private String rank;
     @Column(name = "idade")
     private int idade;
-
+    @Column(name = "img_url")
+    private String imagem;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +30,5 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id")// é o foreign key
     private MissoesModel missoes;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 }

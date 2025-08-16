@@ -1,7 +1,8 @@
-package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Controller;
+package br.com.ricaeldurand.CadastroDeNinjas.Ninjas.controller;
 
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model.NinjaModel;
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Services.NinjaService;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.DTO.NinjaDTO;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.model.NinjaModel;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.services.NinjaService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/ninjas")
 public class ControllerNinjas {
+
     private NinjaService ninjaService;
 
     public ControllerNinjas(NinjaService ninjaService) {
@@ -18,7 +20,7 @@ public class ControllerNinjas {
 
     //adicionar ninja
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
         return ninjaService.criarNinja(ninja);
     }
 

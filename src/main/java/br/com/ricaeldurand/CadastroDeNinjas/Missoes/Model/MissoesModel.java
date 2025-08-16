@@ -1,6 +1,6 @@
 package br.com.ricaeldurand.CadastroDeNinjas.Missoes.Model;
 
-import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.Model.NinjaModel;
+import br.com.ricaeldurand.CadastroDeNinjas.Ninjas.model.NinjaModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
