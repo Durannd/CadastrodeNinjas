@@ -1,7 +1,9 @@
 package br.com.ricaeldurand.CadastroDeNinjas.Missoes.dto_mapper;
 
 import br.com.ricaeldurand.CadastroDeNinjas.Missoes.Model.MissoesModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MissoesMapper {
     public MissoesDTO map (MissoesModel missoesModel){
         MissoesDTO missoesDTO = new MissoesDTO();
