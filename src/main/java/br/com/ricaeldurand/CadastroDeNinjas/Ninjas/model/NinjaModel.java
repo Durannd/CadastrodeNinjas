@@ -10,6 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString(exclude = "missoes")
 public class NinjaModel {
     @Column(name = "nome")
     private String nome;

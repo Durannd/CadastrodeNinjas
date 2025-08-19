@@ -20,6 +20,7 @@ public class MissoesService {
         this.missoesMapper = missoesMapper;
     }
 
+
     public List<MissoesDTO> listarMissoes() {
         List<MissoesModel> missoes = missoesRepository.findAll();
         return missoes.stream()

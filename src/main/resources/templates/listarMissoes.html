@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Lista de Missões</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Estilos básicos para o corpo e o container principal */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        /* Container para a tabela com sombra e bordas arredondadas */
+        .table-container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Estilos da tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        /* Estilos do cabeçalho da tabela */
+        thead {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        /* Cores alternadas para as linhas, facilitando a leitura */
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Efeito ao passar o mouse sobre as linhas */
+        tbody tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Estilos da imagem do ninja */
+        td img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos dos botões/links */
+        td a, .add{
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 0 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            color: #fff;
+        }
+
+        /* Cores específicas para cada botão */
+        .btn-details, .add {
+            background-color: #2ecc71; /* Verde */
+        }
+
+        .btn-edit {
+            background-color: #f39c12; /* Laranja */
+        }
+
+        .btn-delete {
+            background-color: #e74c3c; /* Vermelho */
+        }
+
+        /* Efeito ao passar o mouse sobre os botões */
+        .btn-details:hover, .btn-edit:hover, .btn-delete:hover,  .add {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ajusta a largura da coluna de ações para evitar quebra de linha */
+        td:last-of-type {
+            min-width: 250px;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Missões</h1>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>NOME</th>
+    <th>DIFICULDADE</th>
+    <th>
+        <a class="add" th:href="@{/missoes/ui/adicionar}"> Adicionar uma Missão!</a>
+    </th>
+    </thead>
+    <tbody>
+    <tr th:each="missao : ${missoes}">
+        <td th:text="${missao.id}"></td>
+        <td th:text="${missao.nome}"></td>
+        <td th:text="${missao.dificulty}"></td>
+        <td>
+            <a class="btn-edit" th:href="@{/missoes/ui/alterar/{id}(id=${missao.id})}">Alterar</a>
+            <a class="btn-delete" th:href="@{/missoes/ui/deletar/{id}(id=${missao.id})}">Deletar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
